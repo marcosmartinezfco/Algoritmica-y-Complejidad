@@ -2,7 +2,7 @@ package DivideVenciendo;
 
 public class Principal {
     /**
-     * algoritmo implementado en divide y venceras con complejidad O(N) en el caso peor
+     * algoritmo implementado en divide y venceras con complejidad O(N) en el peor de los casos
      * @param vector de 10 numeros a lo sumo
      * @return la suma de todos los elementos positivos del array
      */
@@ -25,7 +25,7 @@ public class Principal {
     }
 
     /**
-     *
+     * algoritmo implementado en divide y venceras con complejidad O(log n) en el peor de los casos
      * @param vector
      * @return
      */
