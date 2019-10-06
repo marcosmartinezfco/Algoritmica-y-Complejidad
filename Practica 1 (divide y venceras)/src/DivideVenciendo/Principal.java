@@ -29,21 +29,39 @@ public class Principal {
      * @param vector
      * @return
      */
-    public static int sumaPositivos2(int[] vector){
-        return sumaPositivos2Aux(vector, 0, vector.length-1);
+    public static int sumaPositivos2(int[] vector) {
+        int max = mayorEnArray(vector, 0, vector.length-1);
+        if (max == -1)
+            return 0;
+        else{
+            return sumaPositivos2Aux(vector, max);
+        }
     }
-    private static int sumaPositivos2Aux(int[] vector, int i0, int in){
+
+    private static int mayorEnArray(int[] vector, int i0, int in){
         if(i0 == in)
             if (vector[i0] > 0)
-                return vector[i0];
+                return  i0; //Si el elemento maximo es positivo devolvemos su posicion
             else
-                return 0;
+                return -1; //Si el elemento maximo es negativo devolvemos -1
         else{
-            int m = sumaPositivos2Aux(vector, i0+1, in);
-            if (vector[i0] > 0)
-                return vector[i0] + m;
-            else
-                return m;
+            int k = (i0+in)/2;
+
+            if((vector[k] < vector[k+1]) && (vector[k-1] < vector[k] || k == 0)) //Buscamos a la derecha de k para encontrar el max
+                return mayorEnArray(vector, k, in);
+            else //Buscamos a la izquierda de k para encontrar el maximo
+                return mayorEnArray(vector, i0, k);
         }
+    }
+
+    private static int sumaPositivos2Aux(int[] vector, int k){
+        int suma = 0;
+        while(vector[k] > 0){
+            suma += vector[k];
+            if(k == 0)
+                k = vector.length;
+            k--;
+        }
+        return suma;
     }
 }
