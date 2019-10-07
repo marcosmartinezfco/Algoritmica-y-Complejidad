@@ -65,6 +65,4 @@ public class Pruebas {
         System.out.println("==========================");
         probarTest(2,vectores, resul);
     }
-
-
 }

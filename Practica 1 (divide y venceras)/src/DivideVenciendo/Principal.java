@@ -26,19 +26,18 @@ public class Principal {
 
     /**
      * algoritmo implementado en divide y venceras con complejidad O(log n) en el peor de los casos
-     * @param vector
-     * @return
+     * @param vector de 10 numeros a lo sumo
+     * @return la suma de todos los elementos positivos del array
      */
     public static int sumaPositivos2(int[] vector) {
         int max = mayorEnArray(vector, 0, vector.length-1);
-        if (max == -1)
+        if (max == -1) // Esto significa que no hay ningun elemento positivo en el vector
             return 0;
-        else{
+        else
             return sumaPositivos2Aux(vector, max);
-        }
     }
 
-    private static int mayorEnArray(int[] vector, int i0, int in){
+    private static int mayorEnArray(int[] vector, int i0, int in){ //Esta funcion nos devuelve la posicion del mayor elemento del array
         if(i0 == in)
             if (vector[i0] > 0)
                 return  i0; //Si el elemento maximo es positivo devolvemos su posicion
@@ -47,16 +46,13 @@ public class Principal {
         else{
             int k = (i0+in)/2;
 
-            if(vector[k]<vector[0])
-                return mayorEnArray(vector, 0, k-1);
-            else if(vector[k]<vector[k+1])
-                return mayorEnArray(vector, k+1, in);
-            else
-                return k;
+            if(vector[k]<vector[0]) return mayorEnArray(vector, 0, k-1);
+            else if(vector[k]<vector[k+1]) return mayorEnArray(vector, k+1, in);
+            else return k;
         }
     }
 
-    private static int sumaPositivos2Aux(int[] vector, int k){
+    private static int sumaPositivos2Aux(int[] vector, int k){ //Esta funcion suma todos los elementos positivos que hay en el vector desde la posicion que le pasamos
         int suma = 0;
         while(vector[k] > 0){
             suma += vector[k];
