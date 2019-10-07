@@ -47,10 +47,12 @@ public class Principal {
         else{
             int k = (i0+in)/2;
 
-            if((vector[k] < vector[k+1]) && (vector[k-1] < vector[k] || k == 0)) //Buscamos a la derecha de k para encontrar el max
-                return mayorEnArray(vector, k, in);
-            else //Buscamos a la izquierda de k para encontrar el maximo
-                return mayorEnArray(vector, i0, k);
+            if(vector[k]<vector[0])
+                return mayorEnArray(vector, 0, k-1);
+            else if(vector[k]<vector[k+1])
+                return mayorEnArray(vector, k+1, in);
+            else
+                return k;
         }
     }
 
