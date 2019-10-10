@@ -46,19 +46,23 @@ public class Principal {
         else{
             int k = (i0+in)/2;
 
-            if(vector[k]<vector[0]) return mayorEnArray(vector, 0, k-1);
-            else if(vector[k]<vector[k+1]) return mayorEnArray(vector, k+1, in);
-            else return k;
+            if(vector[k]<vector[i0])
+                return mayorEnArray(vector, 0, k-1);
+            else if(vector[k]<vector[k+1])
+                return mayorEnArray(vector, k+1, in);
+            else
+                return k;
         }
     }
 
     private static int sumaPositivos2Aux(int[] vector, int k){ //Esta funcion suma todos los elementos positivos que hay en el vector desde la posicion que le pasamos
-        int suma = 0;
-        while(vector[k] > 0){
+        int suma= 0; int i = 0;
+        while(vector[k] > 0 && i < 10 && i < vector.length){ //Suma hasta que encuentra un elemento no sumable, hasta que ha sumado los 10 positivos o todo el array
             suma += vector[k];
             if(k == 0)
                 k = vector.length;
             k--;
+            i++;
         }
         return suma;
     }
