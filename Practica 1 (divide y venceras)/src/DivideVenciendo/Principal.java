@@ -47,7 +47,7 @@ public class Principal {
             int k = (i0+in)/2;
 
             if(vector[k]<vector[i0])
-                return mayorEnArray(vector, 0, k-1);
+                return mayorEnArray(vector, i0, k-1);
             else if(vector[k]<vector[k+1])
                 return mayorEnArray(vector, k+1, in);
             else
