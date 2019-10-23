@@ -21,16 +21,17 @@ public class ejercicio {
         else if (sumaSub > suma)
             return false;
         else {
-            for (int i = 0; i < conjunto.length; i++)
-                if (sumaSub + conjunto[i] <= suma && i >= pointer) {
+            int i = pointer;
+            while( i < conjunto.length) {
+                if (sumaSub + conjunto[i] <= suma) {
                     conjuntoAux[i] = true; //anotar
                     if (existeSubConjuntoAux(conjunto, conjuntoAux, suma, sumaSub + conjunto[i], i + 1))
                         return true;
-                    else {
+                    else
                         conjuntoAux[i] = false; //desanotar
-                        pointer++;
-                    }
                 }
+                i++;
+            }
             return false;
         }
     }
@@ -48,7 +49,7 @@ public class ejercicio {
 
     public static void main(String[] args){
         int[] arr = {1,3,4,7,2,3};
-        if(!existeSubConjunto(arr,10))
+        if(!existeSubConjunto(arr,6))
             System.out.println("No existe solcuion al problema");
     }
 }
