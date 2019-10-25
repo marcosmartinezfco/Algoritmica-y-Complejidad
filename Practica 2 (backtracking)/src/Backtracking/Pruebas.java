@@ -34,7 +34,7 @@ public class Pruebas {
             "AACTAAG"
     };
 
-    private static int[] resultados = { 1, 3, 7, 6, 7, 1, 1, 4, 0, 13, 16, 11, 5};
+    private static int[] resultados = {1, 3, 7, 6, 7, 1, 1, 4, 0, 13, 16, 11, 5};
 
 
     private static void test() {
