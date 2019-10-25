@@ -23,7 +23,7 @@ public class Principal {
      * @return menor numero de movimientos necesarios para transformar la cadena 1 en la cadena 2
      */
     private static int mejorNumMutaciones(String s1, String s2, int index,int numMov, int mejorMov ){
-        if (index == s2,length() && index == s1,length())
+        if (index == s2.length() && index == s1.length())
             mejorMov = Math.min(mejorMov, numMov);
 
         else if (numMov < mejorMov){
