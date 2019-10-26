@@ -31,8 +31,8 @@ public class Principal {
             mejorMov = Math.min(mejorMov, numMov + Math.abs(s1.length()-s2.length()));
 
         else if (numMov < mejorMov){
+            //pasar elem
             if(s1.charAt(index) == s2.charAt(index))
-                //pasar elem
                 mejorMov = Math.min(mejorNumMutaciones(s1,s2,index+1,numMov,mejorMov), mejorMov);
 
             else{
