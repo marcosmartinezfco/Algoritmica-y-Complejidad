@@ -16,7 +16,8 @@ public class Pruebas {
             "AAAGGGGTTTTCGCTAGTCGATCGATCGATCGATAGCTAGATCGGGGGCCCCTTTTTTTAAAA",
             "ATCGATCGGGGGCCCCTTTTTTTAAAA",
             "GG",
-            "AGTCT"
+            "AGTCT",
+            "TBNC"
     };
     private static String[] str2 = {
             "AAGCT",
@@ -31,10 +32,11 @@ public class Pruebas {
             "AGGTGGTTTTCGCTGGAGTCGACGATCGATAGCTAAGATCGGGGGCCCCCTATTTTTTAA",
             "ATCGATCGATCGATAGCTAGATCGGGGGCCCCTTTTTTTAAAA",
             "AAAACCCTTTT",
-            "AACTAAG"
+            "AACTAAG",
+            "BN"
     };
 
-    private static int[] resultados = {1, 3, 7, 6, 7, 1, 1, 4, 0, 13, 16, 11, 5};
+    private static int[] resultados = {1, 3, 7, 6, 7, 1, 1, 4, 0, 13, 16, 11, 5, 2};
 
 
     private static void test() {
