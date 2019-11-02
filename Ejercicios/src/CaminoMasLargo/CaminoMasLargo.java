@@ -11,12 +11,9 @@ public class CaminoMasLargo {
             return  Math.max(coste, costeMax);
         else{
             for (int i = 0; i < visitados.length; i++)
-                if (!visitados[i] && grafo[nodo][i] != Integer.MAX_VALUE && i != nodo){
+                if (grafo[nodo][i] != Integer.MAX_VALUE){
                     int costeAux = caminoMasLargoAux(grafo,destino, visitados, i, coste+grafo[nodo][i], costeMax);
-                    if(costeAux > costeMax) {
-                        costeMax = costeAux;
-                        visitados[i] = true;
-                    }
+                    costeMax = Math.max(costeAux, costeMax);
                 }
             return costeMax;
         }
