@@ -10,27 +10,30 @@ public class ejercicio1 {
      */
 
     public static int howManyTimesRoteted(int[] arr){
-        return howManyTimesRotetedAux(arr,0,0,arr.length-1);
+        int posMax = howManyTimesRotetedAux(arr,0,arr.length-1);
+        if (posMax == arr.length-1)
+            return 0;
+        else
+            return posMax+1;
     }
 
-    private static int howManyTimesRotetedAux(int[] arr, int times, int i0, int in){
+    private static int howManyTimesRotetedAux(int[] arr, int i0, int in){
         if (i0 == in)
-            return times;
+            return i0;
         else {
             int k = (i0 + in) / 2;
 
-            if (arr[i0] < arr[k] && arr[k] < arr[in]) //el array no es circular por lo que no ha sido desplazado
-                return 0;
-            else if(arr[i0] >arr[k]) //el minimo esta a la izquierda
-                return  howManyTimesRotetedAux(arr,times,i0,k); //no incrementamos el numero de veces que ha sido desplazado
-            else //el minimo esta a la derecha
-                return howManyTimesRotetedAux(arr,k+1,k+1,in); //el numero de veces que ha sido desplazado es el numero de elementos antes del minimo
-
+            if(arr[k]<arr[i0])
+                return howManyTimesRotetedAux(arr, i0, k-1);
+            else if(arr[k]<arr[k+1])
+                return howManyTimesRotetedAux(arr, k+1, in);
+            else
+                return k;
         }
     }
 
     public static void main(String[] args){
-        int[] arr = {9,10,2,5,6,8};
+        int[] arr = {3,4,5,2};
         System.out.println(howManyTimesRoteted(arr));
     }
 }
