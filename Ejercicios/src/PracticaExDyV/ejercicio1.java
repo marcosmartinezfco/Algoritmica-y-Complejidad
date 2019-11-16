@@ -17,7 +17,7 @@ public class ejercicio1 {
             return posMax+1;
     }
 
-    private static int howManyTimesRotetedAux(int[] arr, int i0, int in){
+    private static int howManyTimesRotetedAux(int[] arr, int i0, int in){ //funcion que devuelve la posicion del mayor elemento del vector
         if (i0 == in)
             return i0;
         else {
