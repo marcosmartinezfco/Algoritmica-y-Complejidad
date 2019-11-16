@@ -12,11 +12,14 @@ public class Principal {
     public static ArrayList<Objeto> llenarInventario(ArrayList<Objeto> candidatos, Inventario inventario) {
         ArrayList<Objeto> solucion = new ArrayList<>();
         mergeSort(candidatos);
-        
-        while (0 < candidatos.size()){
+        int areaLibre = inventario.getN()*inventario.getN();
+
+        while (0 < candidatos.size()) {
             Objeto candidato = seleccionarCandidato(candidatos);
-            if(esCandidatoFactible(candidato, inventario))
+            if (candidato.getAlto() * candidato.getAncho() <= areaLibre && esCandidatoFactible(candidato, inventario)){
                 solucion.add(candidato);
+                areaLibre -= candidato.getAlto()*candidato.getAncho();
+            }
         }
         return solucion;
     }
