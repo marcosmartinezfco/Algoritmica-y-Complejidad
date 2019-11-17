@@ -26,7 +26,7 @@ public class Principal {
 
     /**
      * Funcion que selecciona el objeto con mas valor de un Array list, ordenado
-     * por valo,r de Objetos
+     * por valor de Objetos
      * @param candidatos Array list ordenado de objetos segun su valor
      * @return El objeto con mayor valor
      */
