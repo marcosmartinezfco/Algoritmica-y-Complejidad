@@ -63,18 +63,18 @@ public class Principal {
      * @param inventario el inventario donde queremos insertar el objeto
      * @return boolean que indica si se puede insertar el objeto o no
      */
-    private static boolean celdaAceptable(int fil, int col, Objeto objeto, Inventario inventario) {
+    private static boolean celdaAceptable(int col, int fil, Objeto objeto, Inventario inventario) {
         int ancho = 0;
         int largo = 0;
 
-        for (int i = fil; i < inventario.getN(); i++) {
-            if (inventario.getCelda(i, col) == -1)
+        for (int i = col; i < inventario.getN(); i++) {
+            if (inventario.getCelda(i, fil) == -1)
                 ancho ++;
             else
                 break;
         }
-        for (int i = col; i < inventario.getN(); i++) {
-            if (inventario.getCelda(fil, i) == -1)
+        for (int i = fil; i < inventario.getN(); i++) {
+            if (inventario.getCelda(col, i) == -1)
                 largo ++;
             else
                 break;
@@ -82,17 +82,17 @@ public class Principal {
         return objeto.getAlto() <= largo && objeto.getAncho() <= ancho;
     }
 
-    private static void insertarObjeto(Inventario inventario, int fil ,int col, Objeto candidato){
-        int auxCol = col;
+    private static void insertarObjeto(Inventario inventario, int col ,int fil, Objeto candidato){
         int auxFil = fil;
+        int auxCol = col;
 
-        while (auxFil < candidato.getAncho() + fil){
-            while (auxCol < candidato.getAlto() + col){
-                inventario.setCelda(auxFil, auxCol, candidato.getId());
-                auxCol++;
+        while (auxCol < candidato.getAncho() + col){
+            while (auxFil < candidato.getAlto() + fil){
+                inventario.setCelda(auxCol, auxFil, candidato.getId());
+                auxFil++;
             }
-            auxCol = col;
-            auxFil++;
+            auxFil = fil;
+            auxCol++;
         }
     }
 
