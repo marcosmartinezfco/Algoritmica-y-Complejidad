@@ -121,7 +121,7 @@ public class Principal {
         int d = k+1;
         ArrayList<Objeto> aux = new ArrayList<Objeto>(in-i0+1);
         while(i<=k && d <= in)
-            if(candidatos.get(i).getValor() > candidatos.get(d).getValor()){
+            if(candidatos.get(i).getValor() >= candidatos.get(d).getValor()){
                 if(candidatos.get(i).getValor() == candidatos.get(d).getValor() && (candidatos.get(i).getAncho()*candidatos.get(i).getAlto()) > (candidatos.get(d).getAncho()*candidatos.get(d).getAlto())){
                     aux.add(candidatos.get(d));
                     d++;
